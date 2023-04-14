@@ -23,3 +23,6 @@ D:\My Projects\Platformer\obj\Debug\net6.0\refint\Platformer.dll
 D:\My Projects\Platformer\obj\Debug\net6.0\Platformer.pdb
 D:\My Projects\Platformer\obj\Debug\net6.0\Platformer.genruntimeconfig.cache
 D:\My Projects\Platformer\obj\Debug\net6.0\ref\Platformer.dll
+D:\My Projects\Platformer\bin\Debug\net6.0\Content\background.xnb
+D:\My Projects\Platformer\bin\Debug\net6.0\Content\platform.xnb
+D:\My Projects\Platformer\bin\Debug\net6.0\Content\player.xnb
