@@ -1,53 +1,36 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 
 namespace Platformer
 {
     public class Platform
     {
-        public Texture2D PlatformTexture;
-        public Vector2 PlatformPosition;
+        public Texture2D _platformTexture;
+
+        public Vector2 _platformPosition;
+
         public Rectangle PlayerRect;
 
-        public bool IsPlayerOnTop;
-        public bool IsPlayerOnOtherSide;
-
-        public Platform(Texture2D texture,Vector2 vector )
+        public Platform(Texture2D platformTexture, Vector2 platformPosition)
         {
-            PlatformTexture = texture;
-            PlatformPosition = vector;
+            _platformTexture = platformTexture;
+            _platformPosition = platformPosition;
         }
 
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public Rectangle PlatformRectangle
         {
-           spriteBatch.Draw(PlatformTexture, PlatformPosition,Color.White);
-        }
-
-        public void Update(GameTime gameTime)
-        {
-            IsPlayerOnTop = IsPlayerOnOtherSide = false;
-            if (PlayerRect.Intersects(new Rectangle((int)PlatformPosition.X, (int)PlatformPosition.Y, PlatformTexture.Width,1)))
+            get
             {
-                IsPlayerOnTop = true;
-            }
-
-            if (PlayerRect.Intersects(new Rectangle((int)PlatformPosition.X, (int)PlatformPosition.Y, 1, PlatformTexture.Height)))
-            {
-                IsPlayerOnOtherSide = true;
-            }
-
-            if (PlayerRect.Intersects(new Rectangle((int)PlatformPosition.X + PlatformTexture.Width, (int)PlatformPosition.Y, 1, PlatformTexture.Height)))
-            {
-                IsPlayerOnOtherSide = true;
-            }
-
-            if (PlayerRect.Intersects(new Rectangle((int)PlatformPosition.X, (int)PlatformPosition.Y + PlatformTexture.Height, PlatformTexture.Width, 1)))
-            {
-                IsPlayerOnOtherSide = true;
+                return new Rectangle((int)_platformPosition.X, (int)_platformPosition.Y, _platformTexture.Width, _platformTexture.Height);
             }
         }
 
-
+        public void Draw(GameTime gameTime, SpriteBatch _spriteBatch)
+        {
+            _spriteBatch.Draw(_platformTexture, _platformPosition, Color.White);
+        }
     }
 }
